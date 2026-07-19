@@ -1,0 +1,4 @@
+# Tested local environment: Python 3.13.5
+numpy>=2.1
+scipy>=1.15
+matplotlib>=3.10
