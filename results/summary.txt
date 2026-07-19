@@ -1,0 +1,126 @@
+Reproducible calculations for the prophage-biofilm model
+========================================================
+
+Analytical threshold
+--------------------
+Matrix protection offsets the intrinsic MIC cost when
+    (1 + theta R_rho)/(1 + theta) > (1 + a)/(R_M + a).
+The figures use theta = 5.0 unless otherwise stated.
+
+Exposure a = A/M_S = 1.0
+  R_M=0.5: threshold R_rho=1.4000
+  R_M=0.2: threshold R_rho=1.8000
+  R_M=0.01: threshold R_rho=2.1762
+  R_M=0.000976562: threshold R_rho=2.1977
+
+Exposure a = A/M_S = 10.0
+  R_M=0.5: threshold R_rho=1.0571
+  R_M=0.2: threshold R_rho=1.0941
+  R_M=0.01: threshold R_rho=1.1187
+  R_M=0.000976562: threshold R_rho=1.1199
+
+Exposure-threshold curve checks
+-------------------------------
+threshold_RM_0p5_a_0p1: 2
+threshold_RM_0p5_a_1: 1.4
+threshold_RM_0p5_a_10: 1.05714
+threshold_RM_0p5_a_100: 1.00597
+
+Repeated-cleaning simulation
+----------------------------
+R_M: 0.5
+R_rho: 1.4
+final_parent_biomass: 0.0142784
+final_lysogen_biomass: 0.0221559
+final_survival_ratio_L_over_S: 1.5517
+max_parent_sanitizer: 9.34704
+max_lysogen_sanitizer: 9.25535
+
+Survival-ratio parameter map
+----------------------------
+survival_map_parent_final_biomass: 0.0146333
+survival_map_min_ratio: 7.88166e-23
+survival_map_max_ratio: 57.8105
+survival_map_fraction_lysogen_advantage: 0.267535
+
+Cleaning-control map
+--------------------
+cleaning_map_min_ratio: 0.000711253
+cleaning_map_max_ratio: 2.07655
+cleaning_map_fraction_lysogen_advantage: 0.154861
+cleaning_map_baseline_ratio_nearest_grid: 1.5695
+
+Global sensitivity
+------------------
+sensitivity_samples: 700
+sensitivity_response_min: -12
+sensitivity_response_max: 9.83022
+sensitivity_fraction_lysogen_advantage: 0.175714
+sensitivity_strongest_signed_prcc: 0.734542
+sensitivity_strongest_abs_prcc: 0.734542
+sensitivity_prcc_log_R_M: 0.734542
+sensitivity_prcc_R_rho: 0.477246
+sensitivity_prcc_theta: 0.409053
+sensitivity_prcc_log_epsilon_E: -0.0721018
+sensitivity_prcc_cleaning_duration: -0.345539
+sensitivity_prcc_delta_E: -0.185384
+sensitivity_prcc_u0: 0.00243602
+sensitivity_prcc_lambda_A: 0.588672
+sensitivity_prcc_alpha: 0.00912323
+sensitivity_prcc_kmax: -0.649701
+sensitivity_prcc_eta_A: 0.0938294
+
+Time-to-control map
+-------------------
+time_control_threshold: 0.02
+time_control_fraction_reached: 0.76929
+time_control_min_days: 3.36
+time_control_median_days: 5.127
+time_control_baseline_days: 8.202
+
+Boundary-shift analysis
+-----------------------
+boundary_Rrho_at_RM_0p5_duration_1h: 1.40664
+boundary_Rrho_at_RM_0p5_duration_2h: 1.37767
+boundary_Rrho_at_RM_0p5_duration_4h: 1.52128
+boundary_Rrho_at_RM_0p5_duration_6h: 1.65803
+
+Pulse-map analysis
+------------------
+pulse_map_parent_positive_fixed_count: 0
+pulse_map_lysogen_positive_fixed_count: 0
+pulse_map_parent_next_B_at_0p82: 0.666578
+pulse_map_lysogen_next_B_at_0p82: 0.684401
+pulse_map_parent_max_daily_multiplier: 0.823445
+pulse_map_lysogen_max_daily_multiplier: 0.849135
+
+Initial-maturity robustness
+---------------------------
+initial_maturity_fraction_lysogen_advantage: 0.695652
+initial_maturity_baseline_ratio_nearest_grid: 1.57515
+initial_maturity_max_ratio: 1.61038
+initial_maturity_min_ratio: 0.0190573
+
+Mixed-culture public-good analysis
+----------------------------------
+mixed_fraction_total_above_parental_monoculture: 0.813841
+mixed_fraction_lysogen_enriched: 0
+mixed_baseline_total_ratio_nearest_grid: 1.54549
+mixed_baseline_logit_change_nearest_grid: -0.961348
+mixed_baseline_final_lysogen_fraction: 0.0999797
+mixed_final_total_biomass_baseline: 0.0226364
+
+PDE penetration demonstration
+-----------------------------
+pde_parent_mean_exposure_2h: 0.540806
+pde_lysogen_mean_exposure_2h: 0.474451
+pde_lysogen_to_parent_mean_exposure_2h: 0.877304
+pde_parent_surface_concentration_2h: 1.02336e-41
+pde_lysogen_surface_concentration_2h: 6.09196e-50
+
+Interpretation
+--------------
+The calculations show that the lysogen advantage is conditional. It can appear
+inside the phenotype range reported by Zhou et al. when matrix protection is
+strong enough, but it can be removed by longer cleaning or stronger matrix
+removal during cleaning.
